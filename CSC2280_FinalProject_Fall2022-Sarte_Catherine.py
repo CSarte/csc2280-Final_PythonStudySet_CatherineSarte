@@ -68,7 +68,7 @@ def end_program_function():
     #Button Function to enter if they changed their mind and don't want to leave the program 
     def no_Click():
         #Go back the main menu
-        main()
+        endProgram.destroy()
     # end no_click function
     
     #Window to display goodbye message and make sure that they want to exit
