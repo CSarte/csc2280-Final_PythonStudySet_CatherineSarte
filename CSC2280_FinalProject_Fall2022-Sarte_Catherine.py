@@ -44,7 +44,7 @@ def find_questions_answers(num_questions, question_set):
               bg="white", fg = "black", font="Times").pack()
         Label(endProgram, text="Please try again",
           bg="white", fg = "black", font="Times").pack()
-        addSet(x = 1)
+        addSet()
     #Loop until questions and answers within the file have been seperated 
     for i in range(0, int(num_questions)*2, 2):  
         #Set next questions in the set to quesiton list
