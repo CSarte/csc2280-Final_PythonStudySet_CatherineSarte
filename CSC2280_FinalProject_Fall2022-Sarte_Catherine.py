@@ -5,8 +5,8 @@
 # Section: CSC 2280
 # Assignment: Cram Sesh/ Final Project
 
-# Description: This program that allows the user to enter a study set that they want to be tested on then takes them through testing until they
-#master the question a certain amount of times. After going through the learning program it will explain to the their projected grade assesment. 
+# Description: This program allows the user to enter a study set that they want to be tested on then takes them through testing until they
+#master the question a certain amount of times. After going through the learning program it will explain to them their projected grade assesment. 
 
 # Honor Code: “I will practice academic and personal integrity and excellence of character  
 # and expect the same from others.”
