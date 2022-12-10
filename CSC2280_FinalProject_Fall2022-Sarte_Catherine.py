@@ -5,7 +5,8 @@
 # Section: CSC 2280
 # Assignment: Cram Sesh/ Final Project
 
-# Description:.....
+# Description: This program that allows the user to enter a study set that they want to be tested on then takes them through testing until they
+#master the question a certain amount of times. After going through the learning program it will explain to the their projected grade assesment. 
 
 # Honor Code: “I will practice academic and personal integrity and excellence of character  
 # and expect the same from others.”
@@ -651,7 +652,7 @@ def main(learning_complete = 0):
             setCreate.config(state="disabled")
             
             #Make the correct and incorrect answers be displayed next to the question and answer set
-            listbox = Listbox(mainWindow, width=100, height=15)
+            listbox = Listbox(mainWindow, width=30, height=100)
             listbox.insert(1, "Results:")
             #Loop until all of the correct and incorect numbers for each quesiton hae been displayed
             for i in range (len(questions)):
@@ -660,17 +661,21 @@ def main(learning_complete = 0):
             listbox.place(x = 700, y = 200)
             
             #MAke a new lsitbox to display the questions that the user should focus on before the test
-            focus_listbox = Listbox(mainWindow, width = 50, height = 15)
+            focus_listbox = Listbox(mainWindow, width = 20, height = 100)
             focus_listbox.insert(1, "Questions to focus on:")
             
             #Loop until all of the questions to focus on have been displayed
+
             for i in range (len(questions)-1):
                 #If the idex in total focus list at the iteration number is 15 percent or more of the total questions wrong list add that question to set
-                if total_focus_count[i] / (sum(total_focus_count)) >= 0.15:
-                    focus_listbox.insert(i+1, str(questions[i]))
+                if total_focus_count[i] != 0 and (sum(total_focus_count)) != 0:
+                    if total_focus_count[i] / (sum(total_focus_count)) >= 0.15:
+                        focus_listbox.insert(i+1, str(questions[i]))
+                else:
+                    focus_listbox.insert(i+1, "none")
                     
             #Place foucs queations list
-            focus_listbox.place(x = 800, y = 200)
+            focus_listbox.place(x = 900, y = 200)
             
             #create diagnostic Display for potential grade
             #If total_mastery_count is 50% or more of total questions display that projected grade is C- or lower, suggest studying more
@@ -688,7 +693,7 @@ out of the total questions, but more than 50%.
 It is suggested that you study more before your test.''', bg="white", fg = "black", font="times").place(x=10, y = 70)
             #If total_mastery_count is between 25% and 5% of total questions display that projected grade is B to A, They should be ready
             elif sum(total_mastery_count) / ((sum(total_focus_count)) + (sum(total_mastery_count))) > 0.75 and sum(total_mastery_count) / ((sum(total_focus_count)) + (sum(total_mastery_count))) <= 0.95:
-                Label(mainWindow, text="A : B", bg="white", fg = "dark yellow", font="Verdana 32 bold").place(x=10, y = 10)
+                Label(mainWindow, text="A : B", bg="white", fg = "yellow", font="Verdana 32 bold").place(x=10, y = 10)
                 Label(mainWindow, text='''You have achieved 95% or less correct answers
 out of the total questions, but more than 75%.
 You'll do great on the test.''', bg="white", fg = "black", font="times").place(x=10, y = 70)
